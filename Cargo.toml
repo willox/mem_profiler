@@ -1,0 +1,19 @@
+[package]
+name = "mem_profiler"
+version = "0.0.1"
+authors = ["William Wallace <me@wiox.me>"]
+edition = "2018"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+auxtools = { git = "https://github.com/willox/auxtools" }
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3.9", features = ["winuser", "libloaderapi", "errhandlingapi"] }
+
+[dependencies.detour]
+version = "0.7"
+default-features = false
